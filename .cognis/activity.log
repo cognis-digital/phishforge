@@ -37,3 +37,4 @@
 2026-02-26T17:17:07  docs: ELI5 pass
 2026-03-19T12:34:14  refactor: future me will understand this
 2024-06-10T11:15:45  chore: feed the FOUNDRY
+2024-07-02T18:32:52  style(cache): add a dry-run flag
