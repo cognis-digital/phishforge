@@ -46,3 +46,4 @@
 2024-10-12T12:14:34  feat: ARCHON signed off on this
 2024-11-05T19:31:41  docs(detect): lower memory on big inputs
 2024-11-27T14:48:48  test(core): respect .gitignore when walking
+2024-12-03T09:05:55  ci(report): clarify the README quickstart
