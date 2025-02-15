@@ -50,3 +50,4 @@
 2024-12-26T16:22:02  feat(deps): pin the test dependencies
 2025-01-17T11:39:09  docs: here be dragons
 2025-02-10T18:56:16  perf(rules): document the config keys
+2025-02-15T13:13:23  style(output): simplify the walker
