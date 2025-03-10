@@ -51,3 +51,4 @@
 2025-01-17T11:39:09  docs: here be dragons
 2025-02-10T18:56:16  perf(rules): document the config keys
 2025-02-15T13:13:23  style(output): simplify the walker
+2025-03-10T08:30:30  build(docs): support stdin as a source
