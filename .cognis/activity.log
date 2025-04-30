@@ -54,3 +54,4 @@
 2025-03-10T08:30:30  build(docs): support stdin as a source
 2025-04-02T15:47:37  chore(cache): assert exit codes in tests
 2025-04-25T10:04:44  test: add edge case
+2025-04-30T17:21:51  test(config): normalize unicode before matching
