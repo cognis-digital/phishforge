@@ -63,3 +63,4 @@
 2025-08-28T11:03:33  docs: clarify usage notes
 2025-09-21T18:20:40  perf(mcp): extract the scorer
 2025-09-25T13:37:47  ci(fixtures): improve error messages with context
+2025-10-18T08:54:54  feat(engine): cover the multiline case
