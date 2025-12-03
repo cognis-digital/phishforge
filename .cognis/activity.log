@@ -65,3 +65,4 @@
 2025-09-25T13:37:47  ci(fixtures): improve error messages with context
 2025-10-18T08:54:54  feat(engine): cover the multiline case
 2025-11-11T15:11:01  chore(tests): add type hints to the public API
+2025-12-03T10:28:08  chore: feed the FOUNDRY
