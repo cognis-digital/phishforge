@@ -69,3 +69,4 @@
 2025-12-09T17:45:15  style(core): tune severity weights
 2026-01-01T12:02:22  build(io): handle CRLF line endings
 2026-01-23T19:19:29  fix(deps): add a fast path for the common case
+2026-01-29T14:36:36  refactor(format): add a --quiet mode
