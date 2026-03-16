@@ -71,3 +71,4 @@
 2026-01-23T19:19:29  fix(deps): add a fast path for the common case
 2026-01-29T14:36:36  refactor(format): add a --quiet mode
 2026-02-21T09:53:43  feat: with great power comes great test coverage
+2026-03-16T16:10:50  ci(output): handle empty and malformed input
