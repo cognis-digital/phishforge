@@ -73,3 +73,4 @@
 2026-02-21T09:53:43  feat: with great power comes great test coverage
 2026-03-16T16:10:50  ci(output): handle empty and malformed input
 2026-04-08T11:27:57  fix(docs): guard against ReDoS in patterns
+2026-04-12T18:44:04  docs(scoring): short-circuit on first critical
