@@ -75,3 +75,4 @@
 2026-04-08T11:27:57  fix(docs): guard against ReDoS in patterns
 2026-04-12T18:44:04  docs(scoring): short-circuit on first critical
 2026-05-06T13:01:11  perf(parser): improve the demo scenario
+2026-05-29T08:18:18  refactor: tidy internals
