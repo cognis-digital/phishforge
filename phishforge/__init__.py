@@ -1,11 +1,40 @@
-"""
-PHISHFORGE — Open-source phishing simulation — campaigns, templates, training
-Part of the Cognis Neural Suite by Cognis Digital.
-https://cognis.digital · MIT License
-"""
-from phishforge.core import scan, TOOL_NAME, TOOL_VERSION
+"""PHISHFORGE - open-source phishing simulation for blue teams.
 
-__version__ = TOOL_VERSION
-__author__ = "Cognis Digital"
-__license__ = "MIT"
-__all__ = ["scan", "TOOL_NAME", "TOOL_VERSION", "__version__"]
+Manage simulated phishing campaigns: render templates, generate per-recipient
+tracking tokens, simulate recipient events (sent/opened/clicked/reported), and
+score campaign + user susceptibility for security-awareness training.
+
+For authorized internal security training only.
+"""
+from .core import (
+    Campaign,
+    Recipient,
+    Template,
+    render_template,
+    make_token,
+    risk_band,
+    campaign_report,
+    user_scores,
+    record_event,
+    EVENT_WEIGHTS,
+    EVENTS,
+)
+
+TOOL_NAME = "phishforge"
+TOOL_VERSION = "1.0.0"
+
+__all__ = [
+    "Campaign",
+    "Recipient",
+    "Template",
+    "render_template",
+    "make_token",
+    "risk_band",
+    "campaign_report",
+    "user_scores",
+    "record_event",
+    "EVENT_WEIGHTS",
+    "EVENTS",
+    "TOOL_NAME",
+    "TOOL_VERSION",
+]

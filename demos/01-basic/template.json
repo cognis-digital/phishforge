@@ -1,0 +1,5 @@
+{
+  "name": "it-password-expiry",
+  "subject": "[Action Required] {{first_name}}, your password expires today",
+  "body": "Hi {{first_name}},\n\nOur records show your {{department}} account password expires in 1 hour. To avoid being locked out, verify your account now:\n\n  {{tracking_url}}\n\nIf you do not act, IT will suspend access at end of day.\n\nThanks,\nIT Service Desk\n\n(If you believe this message is suspicious, report it to security.)"
+}
