@@ -1,0 +1,4 @@
+name: pilot-engineering-only
+training_url: https://lms.example.com/phish-101
+consent_obtained: false  # legal still reviewing
+external_banner: true

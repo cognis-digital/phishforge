@@ -1,0 +1,6 @@
+name: Q1-test
+training_url: ""
+consent_obtained: false
+external_banner: false
+send_rate: 10000/hour
+lure_template: it-helpdesk-mfa

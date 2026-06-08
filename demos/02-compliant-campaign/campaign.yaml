@@ -1,0 +1,7 @@
+name: 2026-Q2-mfa-training
+training_url: https://lms.example.com/security-101
+consent_obtained: true
+consent_doc: hr/phishing-program-charter-2026.pdf
+external_banner: true
+send_rate: 100/hour
+scope_doc: it/scope-q2-2026.pdf
