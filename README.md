@@ -36,7 +36,12 @@ Open-source phishing simulation — campaigns, templates, training — without s
 <a name="features"></a>
 ## Features
 
-- ✅ Scan
+- ✅ Make Token
+- ✅ Render Template
+- ✅ Record Event
+- ✅ Risk Band
+- ✅ User Scores
+- ✅ Campaign Report
 - ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
 - ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
 
