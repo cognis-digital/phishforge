@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-phishforge
+pip install "git+https://github.com/cognis-digital/phishforge.git"
 phishforge scan .            # → prioritized findings in seconds
 ```
 
@@ -51,7 +51,7 @@ Open-source phishing simulation — campaigns, templates, training — without s
 ## Quick start
 
 ```bash
-pip install cognis-phishforge
+pip install "git+https://github.com/cognis-digital/phishforge.git"
 phishforge --version
 phishforge scan .                       # scan current project
 phishforge scan . --format json         # machine-readable
