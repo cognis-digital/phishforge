@@ -20,6 +20,36 @@ pip install cognis-phishforge
 phishforge scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+`phishforge` runs phishing-simulation campaigns for security-awareness training (authorized internal use only). All output is local; no email is sent.
+
+1. **Install** (from a clone, editable):
+   ```bash
+   pip install -e .
+   phishforge --version
+   ```
+2. **Render** the template for every recipient (needs a template JSON and a recipients CSV with an `email` column):
+   ```bash
+   phishforge render --template template.json --recipients recipients.csv \
+       --campaign q3-awareness --base-url https://sim.example.com
+   ```
+3. **Record outcomes** and build a campaign report. Events are passed as `email=event` (e.g. `opened`, `clicked`, `submitted`, `reported`):
+   ```bash
+   phishforge report --template template.json --recipients recipients.csv \
+       --campaign q3-awareness --event alice@corp.com=clicked
+   ```
+4. **Read the output** — use `--format json` for machine-readable counts, rates, and per-user risk bands:
+   ```bash
+   phishforge --format json score --template template.json \
+       --recipients recipients.csv --event alice@corp.com=submitted
+   ```
+5. **Automate in CI** — generate stable tracking tokens and a JSON report for an awareness dashboard:
+   ```bash
+   phishforge --format json report --template template.json \
+       --recipients recipients.csv --campaign nightly > report.json
+   ```
+
 ## Contents
 
 - [Why phishforge?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
