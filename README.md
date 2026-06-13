@@ -20,6 +20,12 @@ pip install "git+https://github.com/cognis-digital/phishforge.git"
 phishforge scan .            # → prioritized findings in seconds
 ```
 
+<!-- cognis:layman:start -->
+## What is this?
+
+Phishforge is a free, self-hosted tool that lets your security or IT team run controlled phishing simulations against your own employees — no third-party service or account needed. You pick an email template, point it at a list of staff, and it tracks who opens, clicks, or submits credentials so you can see who needs more security-awareness training. It produces clear reports showing each person's risk level (safe, low, medium, or high) and can plug straight into your existing CI pipeline or AI agents. It's built for small security teams that want a simple, scriptable way to measure and reduce phishing risk without heavy infrastructure.
+<!-- cognis:layman:end -->
+
 ## Contents
 
 - [Why phishforge?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
@@ -48,6 +54,42 @@ Open-source phishing simulation — campaigns, templates, training — without s
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:install:start -->
+## Install
+
+`phishforge` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/phishforge/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/phishforge/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/phishforge.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/phishforge.git"  # uv
+pip install "git+https://github.com/cognis-digital/phishforge.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/phishforge.git
+cd phishforge && pip install .
+```
+
+Then run:
+```sh
+phishforge --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
@@ -154,18 +196,18 @@ Every push is verified end-to-end. Latest audit (2026-06-13):
 ```text
 tests        : 12 passed, 0 failed, 0 errored
 compile      : all modules parse
-cli          : C:\Python314\python.exe: No module named https
-package      : https
+cli          : phishforge 0.1.0
+package      : phishforge
 ```
 
 <details><summary>CLI surface (<code>--help</code>)</summary>
 
 ```text
-C:\Python314\python.exe: No module named https
+phishforge 0.1.0
 ```
 </details>
 
-Full machine-readable results: [`AUDIT.md`](AUDIT.md) · regenerate with `python -m https --help` + `pytest -q`.
+Full machine-readable results: [`AUDIT.md`](AUDIT.md) · regenerate with `phishforge --version` + `pytest -q`.
 
 <div align="right"><a href="#top">↑ back to top</a></div>
 
