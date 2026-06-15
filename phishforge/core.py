@@ -82,6 +82,12 @@ def _validate_email(email: str) -> str:
 
 def make_token(secret: str, campaign: str, email: str) -> str:
     """Deterministic per-recipient tracking token (HMAC-SHA256, 16 hex)."""
+    if not secret:
+        raise ValueError("HMAC secret must not be empty")
+    if not campaign:
+        raise ValueError("campaign name must not be empty")
+    if not email:
+        raise ValueError("email must not be empty")
     msg = f"{campaign}\x00{email}".encode("utf-8")
     return hmac.new(secret.encode("utf-8"), msg, hashlib.sha256).hexdigest()[:16]
 

@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import sys
 from typing import List, Optional
 
@@ -22,31 +23,50 @@ from .core import (
 
 
 def _load_recipients(path: str) -> List[Recipient]:
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"recipients file not found: {path!r}")
     out: List[Recipient] = []
-    with open(path, newline="", encoding="utf-8") as fh:
-        reader = csv.DictReader(fh)
-        if not reader.fieldnames or "email" not in reader.fieldnames:
-            raise ValueError("recipients CSV must have an 'email' column")
-        for row in reader:
-            email = (row.get("email") or "").strip()
-            if not email:
-                continue
-            out.append(Recipient(
-                email=email,
-                name=(row.get("name") or "").strip(),
-                department=(row.get("department") or "").strip(),
-            ))
+    try:
+        with open(path, newline="", encoding="utf-8") as fh:
+            reader = csv.DictReader(fh)
+            if not reader.fieldnames or "email" not in reader.fieldnames:
+                raise ValueError("recipients CSV must have an 'email' column")
+            for row in reader:
+                email = (row.get("email") or "").strip()
+                if not email:
+                    continue
+                out.append(Recipient(
+                    email=email,
+                    name=(row.get("name") or "").strip(),
+                    department=(row.get("department") or "").strip(),
+                ))
+    except UnicodeDecodeError as exc:
+        raise ValueError(f"recipients file is not valid UTF-8: {exc}") from exc
+    except csv.Error as exc:
+        raise ValueError(f"malformed CSV in {path!r}: {exc}") from exc
     if not out:
         raise ValueError(f"no recipients loaded from {path}")
     return out
 
 
 def _load_template(path: str) -> Template:
-    with open(path, encoding="utf-8") as fh:
-        data = json.load(fh)
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"template file not found: {path!r}")
+    try:
+        with open(path, encoding="utf-8") as fh:
+            data = json.load(fh)
+    except UnicodeDecodeError as exc:
+        raise ValueError(f"template file is not valid UTF-8: {exc}") from exc
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"template file is not valid JSON: {exc}") from exc
+    if not isinstance(data, dict):
+        raise ValueError("template JSON must be an object")
     for key in ("name", "subject", "body"):
         if key not in data:
             raise ValueError(f"template missing required key: {key!r}")
+    for key in ("name", "subject", "body"):
+        if not isinstance(data[key], str):
+            raise ValueError(f"template field {key!r} must be a string")
     return Template(name=data["name"], subject=data["subject"], body=data["body"])
 
 
@@ -57,6 +77,11 @@ def _build_campaign(args) -> Campaign:
                     recipients=recipients, secret=args.secret)
     if getattr(args, "events", None):
         for spec in args.events:
+            if "=" not in spec:
+                raise ValueError(
+                    f"--event must be EMAIL=EVENT (got {spec!r}); "
+                    f"valid events: {', '.join(EVENTS)}"
+                )
             email, _, event = spec.partition("=")
             record_event(camp, email.strip(), event.strip())
     return camp

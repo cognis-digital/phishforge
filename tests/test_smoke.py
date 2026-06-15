@@ -50,7 +50,9 @@ class CoreTests(unittest.TestCase):
         self.assertIn("{{unknown}}", out["body"])  # unknown left intact
 
     def test_template_placeholders(self):
-        self.assertEqual(_tmpl().placeholders(), ["first_name", "tracking_url", "unknown"])
+        self.assertEqual(
+            _tmpl().placeholders(), ["first_name", "tracking_url", "unknown"]
+        )
 
     def test_record_event_and_scores(self):
         camp = Campaign("c", _tmpl(), [Recipient("a@b.test")])
