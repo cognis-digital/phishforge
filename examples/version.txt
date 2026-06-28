@@ -1,0 +1,3 @@
+$ phishforge-emit --version
+
+phishforge 0.1.0

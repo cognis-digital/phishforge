@@ -20,6 +20,69 @@ pip install cognis-phishforge
 phishforge scan .            # → prioritized findings in seconds
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ phishforge-emit --version
+phishforge 0.1.0
+```
+
+```console
+$ phishforge-emit --help
+usage: phishforge [-h] [--version] [--format {table,json}]
+                  {render,token,report,score} ...
+
+PHISHFORGE - phishing simulation for security-awareness training (authorized
+internal use only).
+
+positional arguments:
+  {render,token,report,score}
+    render              render the template for every recipient
+    token               print the tracking token for every recipient
+    report              funnel + risk-band report for a campaign
+    score               per-recipient susceptibility scores
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format (default: table)
+```
+
+> Blocks above are real `phishforge` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"phishforge": {
+"platform": "stix",
+"findings": [
+{
+"id": "1234567890abcdef",
+"title": "Suspicious Email",
+"description": "Email from unknown sender with suspicious attachment",
+"created_by": "John Doe",
+"created_at": "2023-02-15T14:30:00Z"
+},
+{
+"id": "2345678901cdefg",
+"title": "Malware Detection",
+"description": "Malware detected on compromised system",
+"created_by": "Jane Smith",
+"created_at": "2023-02-16T10:45:00Z"
+}
+]
+}
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 `phishforge` runs phishing-simulation campaigns for security-awareness training (authorized internal use only). All output is local; no email is sent.

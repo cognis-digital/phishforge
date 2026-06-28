@@ -1,0 +1,20 @@
+$ phishforge-emit --help
+
+usage: phishforge [-h] [--version] [--format {table,json}]
+                  {render,token,report,score} ...
+
+PHISHFORGE - phishing simulation for security-awareness training (authorized
+internal use only).
+
+positional arguments:
+  {render,token,report,score}
+    render              render the template for every recipient
+    token               print the tracking token for every recipient
+    report              funnel + risk-band report for a campaign
+    score               per-recipient susceptibility scores
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format (default: table)
